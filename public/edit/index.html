@@ -190,25 +190,28 @@
     function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
     function save() {
-      log('Speichere...');
+      log('Hole aktuelle SHA...');
       document.getElementById('save-btn').disabled = true;
 
       var todo = CONFIG.map(function(cfg){
-        var json = JSON.stringify(DATA[cfg.key], null, 2);
-        var utf8 = unescape(encodeURIComponent(json));
-        var b64 = btoa(utf8);
-        return api('/repos/' + REPO + '/contents/' + cfg.file, 'PUT', {
-          message: 'Admin: ' + cfg.label + ' aktualisiert',
-          content: b64,
-          sha: SHAS[cfg.key],
-          branch: BRANCH,
-        }).then(function(res){
-          if (res.content) {
-            SHAS[cfg.key] = res.content.sha;
-            return cfg.label + ': OK';
-          } else {
-            throw cfg.label + ': ' + (res.message || 'Fehler');
-          }
+        return api('/repos/' + REPO + '/contents/' + cfg.file + '?ref=' + BRANCH).then(function(meta){
+          SHAS[cfg.key] = meta.sha;
+          var json = JSON.stringify(DATA[cfg.key], null, 2);
+          var utf8 = unescape(encodeURIComponent(json));
+          var b64 = btoa(utf8);
+          return api('/repos/' + REPO + '/contents/' + cfg.file, 'PUT', {
+            message: 'Admin: ' + cfg.label + ' aktualisiert',
+            content: b64,
+            sha: meta.sha,
+            branch: BRANCH,
+          }).then(function(res){
+            if (res.content) {
+              SHAS[cfg.key] = res.content.sha;
+              return cfg.label + ': OK';
+            } else {
+              throw cfg.label + ': ' + (res.message || 'Fehler');
+            }
+          });
         });
       });
 
