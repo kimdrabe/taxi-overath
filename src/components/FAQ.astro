@@ -1,33 +1,15 @@
 ---
-
-const faqs = [
-  {
-    q: 'Was kostet eine Fahrt mit Taxi Overath?',
-    a: 'Der Fahrpreis richtet sich nach der offiziellen Taxitarifverordnung. Sie zahlen einen Grundpreis zzgl. Kilometerpreis. Gerne erstellen wir Ihnen vorab einen kostenlosen Festpreis für Ihre Fahrt - einfach anrufen!'
-  },
-  {
-    q: 'Sind Krankentransporte möglich?',
-    a: 'Ja, wir führen Krankentransporte und Dialysefahrten durch. Unsere Fahrer sind entsprechend geschult. Fahrten können auch regelmäßig wiederkehrend gebucht werden.'
-  },
-  {
-    q: 'Gibt es Flughafentransfers?',
-    a: 'Selbstverständlich! Wir fahren Sie zuverlässig zu allen Flughäfen (Köln/Bonn, Düsseldorf, Frankfurt). Auch mit Großgepäck - wir helfen Ihnen gerne.'
-  },
-  {
-    q: 'Wie kurzfristig kann ich buchen?',
-    a: 'In der Regel innerhalb weniger Minuten. Dank unserer 24/7-Erreichbarkeit sind Sie auch spontan flexibel. Für Planungssicherheit empfehlen wir eine Vorbuchung.'
-  }
-];
+import data from '../data/faq.json';
 ---
 
 <section id="faq" class="relative py-24 px-6">
   <div class="max-w-3xl mx-auto">
     <div class="text-center mb-14">
       <span class="text-taxi-yellow text-sm font-semibold tracking-widest uppercase">FAQ</span>
-      <h2 class="text-3xl sm:text-4xl font-bold mt-3 mb-4">Häufig gestellte Fragen</h2>
+      <h2 class="text-3xl sm:text-4xl font-bold mt-3 mb-4">Haufig gestellte Fragen</h2>
     </div>
     <div class="space-y-3">
-      {faqs.map((faq) => (
+      {data.faqs.map((faq) => (
         <details class="group bg-taxi-card/40 backdrop-blur-sm border border-taxi-border rounded-xl overflow-hidden">
           <summary class="flex items-center justify-between p-5 cursor-pointer text-white/90 font-medium hover:text-taxi-yellow transition list-none">
             <span>{faq.q}</span>

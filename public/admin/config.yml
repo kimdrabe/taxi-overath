@@ -1,0 +1,117 @@
+backend:
+  name: git-gateway
+  branch: main
+
+publish_mode: editorial_workflow
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "hero"
+    label: "Hero Bereich"
+    format: "json"
+    create: false
+    delete: false
+    editor:
+      preview: false
+    files:
+      - file: "src/data/hero.json"
+        label: "Hero"
+        name: "hero"
+        fields:
+          - { label: "Uberschrift", name: "headline", widget: "string" }
+          - { label: "Unteruberschrift", name: "subheadline", widget: "string" }
+          - { label: "Beschreibung", name: "description", widget: "text" }
+          - { label: "Telefonnummer", name: "phone", widget: "string" }
+
+  - name: "services"
+    label: "Leistungen"
+    format: "json"
+    create: false
+    delete: false
+    editor:
+      preview: false
+    files:
+      - file: "src/data/services.json"
+        label: "Leistungen"
+        name: "services"
+        fields:
+          - label: "Services"
+            name: "services"
+            widget: "list"
+            fields:
+              - { label: "Titel", name: "title", widget: "string" }
+              - { label: "Beschreibung", name: "desc", widget: "text" }
+              - { label: "Icon", name: "icon", widget: "select", options: ["car", "heart", "droplets", "book", "baby", "plane", "train", "package", "map"] }
+
+  - name: "whyrus"
+    label: "Warum wir"
+    format: "json"
+    create: false
+    delete: false
+    editor:
+      preview: false
+    files:
+      - file: "src/data/whyrus.json"
+        label: "Warum wir"
+        name: "whyrus"
+        fields:
+          - label: "Grunde"
+            name: "reasons"
+            widget: "list"
+            fields:
+              - { label: "Titel", name: "title", widget: "string" }
+              - { label: "Beschreibung", name: "desc", widget: "text" }
+              - { label: "Icon", name: "icon", widget: "select", options: ["clock", "check", "car", "users", "shield", "map"] }
+
+  - name: "about"
+    label: "Uber uns"
+    format: "json"
+    create: false
+    delete: false
+    editor:
+      preview: false
+    files:
+      - file: "src/data/about.json"
+        label: "Uber uns"
+        name: "about"
+        fields:
+          - { label: "Text 1", name: "text1", widget: "text" }
+          - { label: "Text 2", name: "text2", widget: "text" }
+          - { label: "Jahre Erfahrung", name: "years", widget: "string" }
+          - { label: "Fahrzeuge", name: "vehicles", widget: "string" }
+
+  - name: "faq"
+    label: "FAQ"
+    format: "json"
+    create: false
+    delete: false
+    editor:
+      preview: false
+    files:
+      - file: "src/data/faq.json"
+        label: "FAQ"
+        name: "faq"
+        fields:
+          - label: "Fragen"
+            name: "faqs"
+            widget: "list"
+            fields:
+              - { label: "Frage", name: "q", widget: "string" }
+              - { label: "Antwort", name: "a", widget: "text" }
+
+  - name: "contact"
+    label: "Kontakt"
+    format: "json"
+    create: false
+    delete: false
+    editor:
+      preview: false
+    files:
+      - file: "src/data/contact.json"
+        label: "Kontakt"
+        name: "contact"
+        fields:
+          - { label: "Telefon", name: "phone", widget: "string" }
+          - { label: "Telefon sichtbar", name: "phone_display", widget: "string" }
+          - { label: "E-Mail", name: "email", widget: "string" }

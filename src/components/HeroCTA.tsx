@@ -20,7 +20,7 @@ export function HeroCTA({ phoneNumber = "+4922069090990" }: CTASectionProps) {
         Jetzt anrufen
       </a>
       <a
-        href="mailto:info@taxi-overath.de"
+        href={`mailto:info@taxi-overath.de`}
         className={cn(
           "inline-flex items-center gap-2 rounded-xl border-2 border-white/20 px-8 py-4",
           "text-base font-semibold text-white",

@@ -1,13 +1,5 @@
 ---
-
-const reasons = [
-  { title: '24/7 erreichbar', desc: 'Rund um die Uhr - an 365 Tagen im Jahr. Ein Anruf genügt.', icon: 'clock' },
-  { title: 'Pünktlich & zuverlässig', desc: 'Wir halten unsere Versprechen. Pünktlichkeit ist unsere Priorität.', icon: 'check' },
-  { title: 'Moderne Fahrzeuge', desc: 'Komfortable, klimatisierte und saubere Fahrzeuge für jede Fahrt.', icon: 'car' },
-  { title: 'Freundliche Fahrer', desc: 'Unser Team ist geschult, ortskundig und stets serviceorientiert.', icon: 'users' },
-  { title: 'Sichere Fahrten', desc: 'Höchste Sicherheitsstandards für Ihre Personenbeförderung.', icon: 'shield' },
-  { title: 'Lokale Expertise', desc: 'Wir kennen Overath und Umgebung wie unsere Westentasche.', icon: 'map' }
-];
+import data from '../data/whyrus.json';
 
 const icons: Record<string, string> = {
   clock: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
@@ -23,13 +15,13 @@ const icons: Record<string, string> = {
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-14">
       <span class="text-taxi-yellow text-sm font-semibold tracking-widest uppercase">Warum Taxi Overath</span>
-      <h2 class="text-3xl sm:text-4xl font-bold mt-3 mb-4">Darauf können Sie zählen</h2>
+      <h2 class="text-3xl sm:text-4xl font-bold mt-3 mb-4">Darauf konnen Sie zahlen</h2>
       <p class="text-white/50 max-w-lg mx-auto">
-        Seit Jahren die erste Wahl für zuverlässige Mobilität in der Region.
+        Seit Jahren die erste Wahl fur zuverlassige Mobilitat in der Region.
       </p>
     </div>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {reasons.map((r) => (
+      {data.reasons.map((r) => (
         <div class="bg-taxi-card/40 backdrop-blur-sm border border-taxi-border rounded-2xl p-8 text-center hover:border-taxi-yellow/30 transition-all duration-300 group">
           <div class="w-14 h-14 mx-auto mb-5 rounded-xl bg-taxi-yellow/10 text-taxi-yellow flex items-center justify-center group-hover:bg-taxi-yellow/20 group-hover:scale-110 transition-all duration-300" set:html={icons[r.icon]} />
           <h3 class="text-lg font-semibold mb-2">{r.title}</h3>

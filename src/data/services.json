@@ -1,0 +1,13 @@
+{
+  "services": [
+    { "title": "Taxi & Mietwagen", "desc": "Zuverlassige Personenbeforderung fur jede Gelegenheit - ob Stadtfahrt oder Privatfahrt.", "icon": "car" },
+    { "title": "Krankentransporte", "desc": "Sichere und einfuhlsame Beforderung fur Patienten - mit geschulten Fahrern.", "icon": "heart" },
+    { "title": "Dialysefahrten", "desc": "Regelmaaige und zuverlassige Fahrten zu Dialyse-Terminen - punktlich und planbar.", "icon": "droplets" },
+    { "title": "Schulerfahrten", "desc": "Verlassliche Beforderung zur Schule und zuruck - sicher fur Ihr Kind.", "icon": "book" },
+    { "title": "KiTa-Fahrten", "desc": "Fahrten zur Kindertagesstatte - liebevoll und zuverlassig fur die Kleinsten.", "icon": "baby" },
+    { "title": "Flughafenfahrten", "desc": "Entspannt zum Flughafen Koln/Bonn, Dusseldorf oder Frankfurt - auch mit Groagepack.", "icon": "plane" },
+    { "title": "Bahnhofsfahrten", "desc": "Punktliche Abholung und Bringdienste zu Bahnhofen in der Region.", "icon": "train" },
+    { "title": "Kurierfahrten", "desc": "Schnelle und zuverlassige Zustellung von Dokumenten, Paketen und Waren.", "icon": "package" },
+    { "title": "Fernfahrten", "desc": "Komfortable Langstreckenfahrten - bundesweit, jederzeit und flexibel.", "icon": "map" }
+  ]
+}
