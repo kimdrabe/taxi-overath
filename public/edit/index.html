@@ -190,12 +190,20 @@
     function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
     function save() {
-      log('Hole aktuelle SHA...');
+      log('Speichere Datei 1/' + CONFIG.length + ' ...');
       document.getElementById('save-btn').disabled = true;
+      var results = [];
+      var i = 0;
 
-      var todo = CONFIG.map(function(cfg){
-        return api('/repos/' + REPO + '/contents/' + cfg.file + '?ref=' + BRANCH).then(function(meta){
-          SHAS[cfg.key] = meta.sha;
+      function saveNext() {
+        if (i >= CONFIG.length) {
+          log('Gespeichert!\n' + results.join('\n'), 'success');
+          document.getElementById('save-btn').disabled = false;
+          return;
+        }
+        var cfg = CONFIG[i];
+        log('Speichere Datei ' + (i+1) + '/' + CONFIG.length + ': ' + cfg.label + ' ...');
+        api('/repos/' + REPO + '/contents/' + cfg.file + '?ref=' + BRANCH).then(function(meta) {
           var json = JSON.stringify(DATA[cfg.key], null, 2);
           var utf8 = unescape(encodeURIComponent(json));
           var b64 = btoa(utf8);
@@ -204,24 +212,23 @@
             content: b64,
             sha: meta.sha,
             branch: BRANCH,
-          }).then(function(res){
-            if (res.content) {
-              SHAS[cfg.key] = res.content.sha;
-              return cfg.label + ': OK';
-            } else {
-              throw cfg.label + ': ' + (res.message || 'Fehler');
-            }
           });
+        }).then(function(res) {
+          if (res.content) {
+            results.push(cfg.label + ': OK');
+          } else {
+            results.push(cfg.label + ': ' + (res.message || 'Fehler'));
+          }
+          i++;
+          saveNext();
+        }).catch(function(err) {
+          results.push(cfg.label + ': FEHLER - ' + err);
+          i++;
+          saveNext();
         });
-      });
+      }
 
-      Promise.all(todo).then(function(results){
-        log('Gespichert!\n' + results.join('\n'), 'success');
-        document.getElementById('save-btn').disabled = false;
-      }).catch(function(err){
-        log('FEHLER:\n' + err, 'error');
-        document.getElementById('save-btn').disabled = false;
-      });
+      saveNext();
     }
 
     var savedToken = localStorage.getItem('gh_token');
