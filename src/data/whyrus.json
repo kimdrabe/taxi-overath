@@ -1,10 +1,34 @@
 {
   "reasons": [
-    { "title": "24/7 erreichbar", "desc": "Rund um die Uhr - an 365 Tagen im Jahr. Ein Anruf genugt.", "icon": "clock" },
-    { "title": "Punktlich & zuverlassig", "desc": "Wir halten unsere Versprechen. Punktlichkeit ist unsere Prioritat.", "icon": "check" },
-    { "title": "Moderne Fahrzeuge", "desc": "Komfortable, klimatisierte und saubere Fahrzeuge fur jede Fahrt.", "icon": "car" },
-    { "title": "Freundliche Fahrer", "desc": "Unser Team ist geschult, ortskundig und stets serviceorientiert.", "icon": "users" },
-    { "title": "Sichere Fahrten", "desc": "Hochste Sicherheitsstandards fur Ihre Personenbeforderung.", "icon": "shield" },
-    { "title": "Lokale Expertise", "desc": "Wir kennen Overath und Umgebung wie unsere Westentasche.", "icon": "map" }
+    {
+      "title": "24/7 erreichbar",
+      "desc": "Rund um die Uhr - an 365 Tagen im Jahr. Ein Anruf genugt.",
+      "icon": "clock"
+    },
+    {
+      "title": "Punktlich & zuverlassig",
+      "desc": "Wir halten unsere Versprechen. Punktlichkeit ist unsere Prioritat.",
+      "icon": "check"
+    },
+    {
+      "title": "Moderne Fahrzeuge",
+      "desc": "Komfortable, klimatisierte und saubere Fahrzeuge fur jede Fahrt.",
+      "icon": "car"
+    },
+    {
+      "title": "Freundliche Fahrer",
+      "desc": "Unser Team ist geschult, ortskundig und stets serviceorientiert.",
+      "icon": "users"
+    },
+    {
+      "title": "Sichere Fahrten",
+      "desc": "Hochste Sicherheitsstandards fur Ihre Personenbeforderung.",
+      "icon": "shield"
+    },
+    {
+      "title": "Lokale Expertise",
+      "desc": "Wir kennen Overath und Umgebung wie unsere Westentasche.",
+      "icon": "map"
+    }
   ]
 }
