@@ -41,7 +41,18 @@ export async function onRequest(context) {
     });
   }
 
-  const siteUrl = new URL('auth-callback', url.origin);
-  siteUrl.hash = 'access_token=' + encodeURIComponent(accessToken);
-  return Response.redirect(siteUrl.toString(), 302);
+  const html = '<!DOCTYPE html><html><head><meta charset="utf-8"/><title>Authorizing - Taxi Overath CMS</title></head><body><script>' +
+    'var token = ' + JSON.stringify(accessToken) + ';' +
+    'var opener = window.opener || window.parent;' +
+    'if (opener) {' +
+    '  opener.postMessage({type:"authorization",token:token},"*");' +
+    '  window.close();' +
+    '} else {' +
+    '  document.body.textContent = "Kein Opener/Elternfenster";' +
+    '}' +
+    '<\/script><p>Authorizing...</p></body></html>';
+
+  return new Response(html, {
+    headers: { 'Content-Type': 'text/html' },
+  });
 }
