@@ -1,12 +1,12 @@
 export async function onRequest(context) {
   const url = new URL(context.request.url);
   const code = url.searchParams.get('code');
-  const siteId = url.searchParams.get('site_id') || 'taxi-overath.pages.dev';
 
   const clientId = 'Ov23liNbp3aoeUEvfF3f';
   const clientSecret = '8d70c4d8bb6be5d291223526bc6953e9e6be5e82';
 
   if (!code) {
+    const siteId = url.searchParams.get('site_id') || 'taxi-overath.pages.dev';
     const redirectUri = 'https://' + siteId + '/auth/github';
     const githubUrl = 'https://github.com/login/oauth/authorize'
       + '?client_id=' + encodeURIComponent(clientId)
@@ -35,23 +35,13 @@ export async function onRequest(context) {
   const accessToken = tokenData.access_token;
 
   if (!accessToken) {
-    return new Response(JSON.stringify(tokenData), {
+    return new Response('Token exchange failed: ' + JSON.stringify(tokenData), {
       status: 400,
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'text/plain' },
     });
   }
 
-  const html = '<!DOCTYPE html><html><head><meta charset="utf-8"/><title>Authorizing...</title></head><body><script>' +
-    'var token = ' + JSON.stringify(accessToken) + ';' +
-    'if (window.opener) {' +
-    '  window.opener.postMessage({ type: "authorization", token: token }, "*");' +
-    '  window.close();' +
-    '} else {' +
-    '  document.body.textContent = "Authorizing... done!";' +
-    '}' +
-    '<\/script><p>Authorizing... fertig!</p></body></html>';
-
-  return new Response(html, {
-    headers: { 'Content-Type': 'text/html' },
-  });
+  const siteUrl = new URL('auth.html', url.origin);
+  siteUrl.hash = 'access_token=' + encodeURIComponent(accessToken);
+  return Response.redirect(siteUrl.toString(), 302);
 }

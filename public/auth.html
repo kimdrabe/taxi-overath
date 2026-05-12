@@ -11,11 +11,20 @@
     var error = fragment.get('error');
 
     if (token) {
-      window.opener.postMessage({ type: 'authorization', token: token }, '*');
-      window.close();
+      if (window.opener) {
+        window.opener.postMessage({ type: 'authorization', token: token }, '*');
+        window.close();
+      } else {
+        document.body.textContent = 'Authorizing... done! Kein opener gefunden.';
+      }
     } else if (error) {
-      window.opener.postMessage({ type: 'error', error: error }, '*');
-      window.close();
+      document.body.textContent = 'Fehler: ' + error;
+      if (window.opener) {
+        window.opener.postMessage({ type: 'error', error: error }, '*');
+        window.close();
+      }
+    } else {
+      document.body.textContent = 'Kein Token empfangen. Fragment: ' + window.location.hash;
     }
   </script>
   <p>Authorizing...</p>
