@@ -1,0 +1,27 @@
+---
+
+const areas = ['Overath', 'Bergisch Gladbach', 'Rösrath', 'Lohmar', 'Köln', 'Gummersbach', 'Lindlar', 'Engelskirchen'];
+---
+
+<section id="local" class="relative py-24 px-6">
+  <div class="max-w-4xl mx-auto">
+    <div class="bg-gradient-to-br from-taxi-card/60 to-taxi-card/20 backdrop-blur-sm border border-taxi-border rounded-3xl p-8 sm:p-12 text-center">
+      <span class="text-taxi-yellow text-sm font-semibold tracking-widest uppercase">Servicegebiet</span>
+      <h2 class="text-3xl sm:text-4xl font-bold mt-3 mb-6">
+        Taxi in der gesamten Region
+      </h2>
+      <p class="text-white/70 leading-relaxed max-w-2xl mx-auto mb-8">
+        Ob Kurzstrecke innerhalb von Overath oder Fahrt in die Nachbarstädte –
+        wir sind für Sie da. <strong class="text-white">Taxi Overath</strong> ist Ihr zuverlässiger Partner
+        für Personenbeförderung in der gesamten Region Bergisches Land und darüber hinaus.
+      </p>
+      <div class="flex flex-wrap justify-center gap-2">
+        {areas.map((area) => (
+          <span class="px-4 py-2 bg-taxi-yellow/10 border border-taxi-yellow/20 text-taxi-yellow text-sm rounded-full font-medium">
+            {area}
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

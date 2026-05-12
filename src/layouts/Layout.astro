@@ -1,0 +1,58 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Taxi Overath – Ihr zuverlässiges Taxi 24/7 in Overath',
+  description = 'Taxi Overath – Ihr zuverlässiger Taxi-Service in Overath, Bergisch Gladbach, Rösrath und Lohmar. 24/7 erreichbar. Krankentransporte, Flughafenfahrten, Schüler- und KiTa-Fahrten.'
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://taxi-overath.de/" />
+    <title>{title}</title>
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "TaxiService",
+      "name": "Taxi Overath",
+      "image": "https://taxi-overath.de/favicon.svg",
+      "telephone": "+4922069090990",
+      "email": "info@taxi-overath.de",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Hauptstraße 100",
+        "addressLocality": "Overath",
+        "postalCode": "51491",
+        "addressCountry": "DE"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "00:00",
+          "closes": "23:59"
+        }
+      ],
+      "areaServed": ["Overath", "Bergisch Gladbach", "Rösrath", "Lohmar", "Köln", "Gummersbach"],
+      "priceRange": "€€",
+      "url": "https://taxi-overath.de"
+    })} />
+  </head>
+  <body class="bg-taxi-dark text-white antialiased pb-20 md:pb-0">
+    <slot />
+  </body>
+</html>

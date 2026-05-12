@@ -1,0 +1,83 @@
+---
+
+const services = [
+  {
+    title: 'Taxi & Mietwagen',
+    desc: 'Zuverlässige Personenbeförderung für jede Gelegenheit – ob Stadtfahrt oder Privatfahrt.',
+    icon: 'car'
+  },
+  {
+    title: 'Krankentransporte',
+    desc: 'Sichere und einfühlsame Beförderung für Patienten – mit geschulten Fahrern.',
+    icon: 'heart'
+  },
+  {
+    title: 'Dialysefahrten',
+    desc: 'Regelmäßige und zuverlässige Fahrten zu Dialyse-Terminen – pünktlich und planbar.',
+    icon: 'droplets'
+  },
+  {
+    title: 'Schülerfahrten',
+    desc: 'Verlässliche Beförderung zur Schule und zurück – sicher für Ihr Kind.',
+    icon: 'book'
+  },
+  {
+    title: 'KiTa-Fahrten',
+    desc: 'Fahrten zur Kindertagesstätte – liebevoll und zuverlässig für die Kleinsten.',
+    icon: 'baby'
+  },
+  {
+    title: 'Flughafenfahrten',
+    desc: 'Entspannt zum Flughafen Köln/Bonn, Düsseldorf oder Frankfurt – auch mit Großgepäck.',
+    icon: 'plane'
+  },
+  {
+    title: 'Bahnhofsfahrten',
+    desc: 'Pünktliche Abholung und Bringdienste zu Bahnhöfen in der Region.',
+    icon: 'train'
+  },
+  {
+    title: 'Kurierfahrten',
+    desc: 'Schnelle und zuverlässige Zustellung von Dokumenten, Paketen und Waren.',
+    icon: 'package'
+  },
+  {
+    title: 'Fernfahrten',
+    desc: 'Komfortable Langstreckenfahrten – bundesweit, jederzeit und flexibel.',
+    icon: 'map'
+  }
+];
+
+const icons: Record<string, string> = {
+  car: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.3-1.4.7l-1.5 2.8c-.1.2-.1.4-.1.7V17c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>',
+  heart: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-2.5 2-5 2-8 0-3.5-2-6-5-6-2 0-3.5 1-5 3-1.5-2-3-3-5-3C5 0 3 2.5 3 6c0 3 1 5.5 3 8l6 10 7-10Z"/></svg>',
+  droplets: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>',
+  book: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="8" x2="16" y1="7" y2="7"/></svg>',
+  baby: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/><path d="M12 10c-3.3 0-6 2.2-6 6v2h12v-2c0-3.8-2.7-6-6-6Z"/><path d="M2 18h20"/><path d="M6 22h12"/></svg>',
+  plane: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>',
+  train: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="12" rx="2"/><path d="M3 9h18"/><path d="M21 15v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3"/><path d="M7 21l2-4"/><path d="M17 21l-2-4"/><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/></svg>',
+  package: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 9.4 7.55 4.24"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.29 7 12 12 20.71 7"/><line x1="12" x2="12" y1="22" y2="12"/></svg>',
+  map: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" x2="8" y1="2" y2="18"/><line x1="16" x2="16" y1="6" y2="22"/></svg>'
+};
+---
+
+<section id="services" class="relative py-24 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-14">
+      <span class="text-taxi-yellow text-sm font-semibold tracking-widest uppercase">Unsere Services</span>
+      <h2 class="text-3xl sm:text-4xl font-bold mt-3 mb-4">Leistungen</h2>
+      <p class="text-white/50 max-w-lg mx-auto">
+        Rundum-Service für Privat- und Geschäftskunden – jederzeit, überall.
+      </p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {services.map((s) => (
+        <div class="group bg-taxi-card/60 backdrop-blur-sm border border-taxi-border rounded-2xl p-6 hover:border-taxi-yellow/30 hover:-translate-y-1 transition-all duration-300">
+          <div class="text-taxi-yellow mb-4 group-hover:scale-110 transition-transform duration-300" set:html={icons[s.icon]} />
+          <h3 class="text-lg font-semibold mb-2">{s.title}</h3>
+          <p class="text-white/50 text-sm leading-relaxed">{s.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

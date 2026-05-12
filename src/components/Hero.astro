@@ -1,0 +1,22 @@
+---
+import { HeroCTA } from './HeroCTA';
+---
+
+<section class="relative min-h-screen flex items-center justify-center px-6 pt-24 pb-16 overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-b from-taxi-dark via-transparent to-taxi-dark pointer-events-none z-10" />
+  <div class="text-center max-w-4xl relative z-20">
+    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
+      Ihr zuverlässiges Taxi in <span class="text-taxi-yellow">Overath</span><br />
+      <span class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl">24/7 für Sie da</span>
+    </h1>
+    <p class="text-lg sm:text-xl text-white/60 mb-10 max-w-2xl mx-auto leading-relaxed">
+      Ob Flughafen, Bahnhof, Krankentransport oder KiTa-Fahrt – <br class="hidden sm:inline" />
+      wir bringen Sie sicher, pünktlich und entspannt ans Ziel.
+    </p>
+    <HeroCTA client:load />
+    <p class="mt-8 text-white/50 text-sm">
+      <span class="text-white/30">24/7 erreichbar unter</span>
+      <a href="tel:+4922069090990" class="text-taxi-yellow hover:text-taxi-yellow-hover transition font-semibold text-lg ml-2">+49 2206 9090990</a>
+    </p>
+  </div>
+</section>
