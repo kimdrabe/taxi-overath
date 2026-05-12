@@ -12,8 +12,7 @@ export async function onRequest(context) {
       + '?client_id=' + encodeURIComponent(clientId)
       + '&redirect_uri=' + encodeURIComponent(redirectUri)
       + '&scope=repo'
-      + '&response_type=code'
-      + '&state=' + encodeURIComponent(siteId);
+      + '&response_type=code';
 
     return Response.redirect(githubUrl, 302);
   }
@@ -41,18 +40,19 @@ export async function onRequest(context) {
     });
   }
 
-  const html = '<!DOCTYPE html><html><head><meta charset="utf-8"/><title>Authorizing - Taxi Overath CMS</title></head><body><script>' +
-    'var token = ' + JSON.stringify(accessToken) + ';' +
-    'var opener = window.opener || window.parent;' +
-    'if (opener) {' +
-    '  opener.postMessage({type:"authorization",token:token},"*");' +
-    '  window.close();' +
-    '} else {' +
-    '  document.body.textContent = "Kein Opener/Elternfenster";' +
+  const html = '<!DOCTYPE html><html><head><meta charset="utf-8"/><title>Authorizing - Taxi Overath CMS</title></head><body>' +
+    '<script>' +
+    'var t = ' + JSON.stringify(accessToken) + ';' +
+    'if (window.opener) {' +
+    '  window.opener.postMessage({type:"authorization",token:t},"*");' +
     '}' +
-    '<\/script><p>Authorizing...</p></body></html>';
+    'window.location.hash = "access_token=" + encodeURIComponent(t);' +
+    '<\/script>' +
+    '<p>Authorizing... fertig! Dieses Fenster kann geschlossen werden.</p>' +
+    '</body></html>';
 
   return new Response(html, {
+    status: 200,
     headers: { 'Content-Type': 'text/html' },
   });
 }
