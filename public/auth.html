@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Authorizing - Taxi Overath CMS</title>
+</head>
+<body>
+  <script>
+    var fragment = new URLSearchParams(window.location.hash.slice(1));
+    var token = fragment.get('access_token');
+    var error = fragment.get('error');
+
+    if (token) {
+      window.opener.postMessage({ type: 'authorization', token: token }, '*');
+      window.close();
+    } else if (error) {
+      window.opener.postMessage({ type: 'error', error: error }, '*');
+      window.close();
+    }
+  </script>
+  <p>Authorizing...</p>
+</body>
+</html>

@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: kimdrabe/taxi-overath
   branch: main
+  auth_type: implicit-grant
+  app_id: Ov23liNbp3aoeUEvfF3f
 
 publish_mode: editorial_workflow
 media_folder: "public/uploads"
