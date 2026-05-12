@@ -41,7 +41,7 @@ export async function onRequest(context) {
     });
   }
 
-  const siteUrl = new URL('auth.html', url.origin);
+  const siteUrl = new URL('auth-callback.html', url.origin);
   siteUrl.hash = 'access_token=' + encodeURIComponent(accessToken);
   return Response.redirect(siteUrl.toString(), 302);
 }
