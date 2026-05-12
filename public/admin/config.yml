@@ -3,7 +3,7 @@ backend:
   repo: kimdrabe/taxi-overath
   branch: main
   base_url: https://taxi-overath.pages.dev
-  auth_endpoint: auth-init.html
+  auth_endpoint: auth/github
 
 publish_mode: editorial_workflow
 media_folder: "public/uploads"
