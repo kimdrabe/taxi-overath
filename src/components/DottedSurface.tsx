@@ -92,7 +92,7 @@ export function DottedSurface({ className, dotColor = [200, 200, 200], ...props 
 
       positionAttribute.needsUpdate = true;
       renderer.render(scene, camera);
-      count += 0.1;
+      count += 0.03;
     };
 
     const handleResize = () => {

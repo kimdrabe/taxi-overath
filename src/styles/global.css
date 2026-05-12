@@ -3,8 +3,8 @@
 @theme {
   --color-taxi-yellow: #eab308;
   --color-taxi-yellow-hover: #ca8a04;
-  --color-taxi-dark: #0b1120;
-  --color-taxi-card: #111d32;
+  --color-taxi-dark: #000000;
+  --color-taxi-card: #111111;
   --color-taxi-muted: #64748b;
   --color-taxi-border: rgba(255, 255, 255, 0.08);
 }

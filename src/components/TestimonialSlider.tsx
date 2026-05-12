@@ -10,7 +10,7 @@ const testimonials = [
   },
   {
     name: "Thomas Becker",
-    text: "Der Flughafentransfer hat einwandfrei geklappt. Pünktliche Abholung um 4 Uhr morgens – absolut zuverlässig.",
+    text: "Der Flughafentransfer hat einwandfrei geklappt. Pünktliche Abholung um 4 Uhr morgens - absolut zuverlässig.",
     rating: 5,
     role: "Geschäftsreisender"
   },
