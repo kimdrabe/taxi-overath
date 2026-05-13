@@ -7,6 +7,9 @@ import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://kimdrabe.github.io',
+  base: '/taxi-overath',
+
   vite: {
     plugins: [tailwindcss()]
   },
