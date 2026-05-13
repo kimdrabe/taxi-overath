@@ -3,7 +3,7 @@ backend:
   repo: kimdrabe/taxi-overath
   branch: main
   base_url: https://taxi-overath-auth.vercel.app
-  auth_endpoint: /api/auth/github
+  auth_endpoint: api/auth/github
 
 publish_mode: editorial_workflow
 media_folder: "public/uploads"
