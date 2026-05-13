@@ -14,26 +14,24 @@
       var error = params.get('error');
 
       if (token) {
+        try {
+          window.localStorage.setItem('netlify-cms-user', JSON.stringify({ token: token, backendName: 'github' }));
+          window.localStorage.setItem('decap-cms-user', JSON.stringify({ token: token, backendName: 'github' }));
+          window.sessionStorage.setItem('github_token', token);
+        } catch(e) {}
         if (window.opener) {
-          window.opener.postMessage(
-            'authorization:github:success:' + JSON.stringify({ token: token }),
-            '*'
-          );
+          window.opener.postMessage('authorization:github:success:' + JSON.stringify({ token: token }), '*');
+          try { window.opener.location.hash = 'access_token=' + encodeURIComponent(token); } catch(e) {}
         }
       } else if (error) {
         if (window.opener) {
-          window.opener.postMessage(
-            'authorization:github:error:' + JSON.stringify({ message: error }),
-            '*'
-          );
+          window.opener.postMessage('authorization:github:error:' + JSON.stringify({ message: error }), '*');
         }
       }
 
-      if (window.opener) {
-        window.close();
-      } else {
-        document.body.innerHTML = '<p>Authorisierung abgeschlossen. Du kannst dieses Fenster schließen.</p>';
-      }
+      setTimeout(function() {
+        if (window.opener) { window.close(); }
+      }, 1000);
     })();
   </script>
 </body>

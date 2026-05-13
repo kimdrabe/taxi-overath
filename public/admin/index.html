@@ -5,6 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Content Manager - Taxi Overath</title>
   <script>window.CMS_MANUAL_INIT = true;</script>
+  <script>
+  (function() {
+    var stored = localStorage.getItem('decap-cms-user');
+    if (stored) {
+      try { var d = JSON.parse(stored); if (d && d.token) { window.__cmsToken = d.token; } } catch(e) {}
+    }
+    if (!stored) {
+      var handler = function(e) {
+        if (typeof e.data === 'string' && e.data.indexOf('authorization:github:success:') === 0) {
+          var data = JSON.parse(e.data.match(/authorization:github:success:(.+)$/)[1]);
+          if (data && data.token) {
+            localStorage.setItem('decap-cms-user', JSON.stringify({ token: data.token, backendName: 'github' }));
+            localStorage.setItem('netlify-cms-user', JSON.stringify({ token: data.token, backendName: 'github' }));
+            window.location.reload();
+          }
+        }
+      };
+      window.addEventListener('message', handler, false);
+    }
+  })();
+  </script>
   <script src="https://unpkg.com/decap-cms@^3/dist/decap-cms.js"></script>
 </head>
 <body>
