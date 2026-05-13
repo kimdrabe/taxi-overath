@@ -1,0 +1,126 @@
+media:
+  input: public/uploads
+  output: /uploads
+
+content:
+  - name: hero
+    label: Hero Bereich
+    type: file
+    path: src/data/hero.json
+    fields:
+      - name: headline
+        label: Überschrift
+        type: string
+      - name: subheadline
+        label: Unterüberschrift
+        type: string
+      - name: description
+        label: Beschreibung
+        type: text
+      - name: phone
+        label: Telefonnummer
+        type: string
+
+  - name: services
+    label: Leistungen
+    type: file
+    path: src/data/services.json
+    fields:
+      - name: services
+        label: Services
+        type: list
+        fields:
+          - name: title
+            label: Titel
+            type: string
+          - name: desc
+            label: Beschreibung
+            type: text
+          - name: icon
+            label: Icon
+            type: select
+            options:
+              - car
+              - heart
+              - droplets
+              - book
+              - baby
+              - plane
+              - train
+              - package
+              - map
+
+  - name: whyrus
+    label: Warum wir
+    type: file
+    path: src/data/whyrus.json
+    fields:
+      - name: reasons
+        label: Gründe
+        type: list
+        fields:
+          - name: title
+            label: Titel
+            type: string
+          - name: desc
+            label: Beschreibung
+            type: text
+          - name: icon
+            label: Icon
+            type: select
+            options:
+              - clock
+              - check
+              - car
+              - users
+              - shield
+              - map
+
+  - name: about
+    label: Über uns
+    type: file
+    path: src/data/about.json
+    fields:
+      - name: text1
+        label: Text 1
+        type: text
+      - name: text2
+        label: Text 2
+        type: text
+      - name: years
+        label: Jahre Erfahrung
+        type: string
+      - name: vehicles
+        label: Fahrzeuge
+        type: string
+
+  - name: faq
+    label: FAQ
+    type: file
+    path: src/data/faq.json
+    fields:
+      - name: faqs
+        label: Fragen
+        type: list
+        fields:
+          - name: q
+            label: Frage
+            type: string
+          - name: a
+            label: Antwort
+            type: text
+
+  - name: contact
+    label: Kontakt
+    type: file
+    path: src/data/contact.json
+    fields:
+      - name: phone
+        label: Telefon
+        type: string
+      - name: phone_display
+        label: Telefon sichtbar
+        type: string
+      - name: email
+        label: E-Mail
+        type: string
