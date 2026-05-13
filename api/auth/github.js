@@ -6,8 +6,7 @@ export default async function handler(req, res) {
 
   if (!code) {
     const siteId = req.query.site_id || 'kimdrabe.github.io/taxi-overath';
-    const baseUrl = `https://${siteId}`;
-    const redirectUri = `${baseUrl}/admin/`;
+    const redirectUri = `https://${req.headers.host}/api/auth/github`;
     const githubUrl = 'https://github.com/login/oauth/authorize'
       + '?client_id=' + encodeURIComponent(clientId)
       + '&redirect_uri=' + encodeURIComponent(redirectUri)
