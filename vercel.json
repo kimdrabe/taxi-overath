@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/auth/github.js": {
+      "maxDuration": 10
+    }
+  }
+}
