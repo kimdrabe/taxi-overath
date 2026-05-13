@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>Authorisierung abgeschlossen</title>
+</head>
+<body>
+  <p>Authorisierung erfolgreich. Dieses Fenster schließt sich gleich...</p>
+  <script>
+    (function() {
+      var hash = window.location.hash.replace(/^#\/?/, '');
+      var params = new URLSearchParams(hash);
+      var token = params.get('access_token');
+      var error = params.get('error');
+
+      if (token) {
+        if (window.opener) {
+          window.opener.postMessage(
+            'authorization:github:success:' + JSON.stringify({ token: token }),
+            '*'
+          );
+        }
+      } else if (error) {
+        if (window.opener) {
+          window.opener.postMessage(
+            'authorization:github:error:' + JSON.stringify({ message: error }),
+            '*'
+          );
+        }
+      }
+
+      if (window.opener) {
+        window.close();
+      } else {
+        document.body.innerHTML = '<p>Authorisierung abgeschlossen. Du kannst dieses Fenster schließen.</p>';
+      }
+    })();
+  </script>
+</body>
+</html>
