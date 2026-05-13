@@ -29,6 +29,11 @@
       "title": "Lokale Expertise",
       "desc": "Wir kennen Overath und Umgebung wie unsere Westentasche.",
       "icon": "map"
+    },
+    {
+      "title": "Perfekter  Test",
+      "desc": "Test?",
+      "icon": "shield"
     }
   ]
 }
