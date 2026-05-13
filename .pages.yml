@@ -28,7 +28,10 @@ content:
     fields:
       - name: services
         label: Services
-        type: list
+        type: object
+        list:
+          collapsible: true
+          summary: "{title}"
         fields:
           - name: title
             label: Titel
@@ -57,7 +60,10 @@ content:
     fields:
       - name: reasons
         label: Gründe
-        type: list
+        type: object
+        list:
+          collapsible: true
+          summary: "{title}"
         fields:
           - name: title
             label: Titel
@@ -101,7 +107,10 @@ content:
     fields:
       - name: faqs
         label: Fragen
-        type: list
+        type: object
+        list:
+          collapsible: true
+          summary: "{q}"
         fields:
           - name: q
             label: Frage
