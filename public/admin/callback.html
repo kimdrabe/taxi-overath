@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>Authorisierung abgeschlossen</title>
+</head>
+<body>
+  <p>Authorisierung erfolgreich. Dieses Fenster schließt sich gleich...</p>
+  <script>
+    var token = window.location.hash.split('access_token=')[1];
+    if (token) {
+      token = token.split('&')[0];
+      if (window.opener) {
+        window.opener.postMessage({ type: "authorization", token: decodeURIComponent(token) }, "*");
+        window.close();
+      }
+    }
+  </script>
+</body>
+</html>

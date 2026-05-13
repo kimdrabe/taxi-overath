@@ -30,12 +30,9 @@ export default async function handler(req, res) {
     return;
   }
 
-  const html = `<!DOCTYPE html><html><meta charset="utf-8"/><title>Authorizing - Taxi Overath CMS</title><body><script>
-var t = ${JSON.stringify(accessToken)};
-if (window.opener) { window.opener.postMessage({type:"authorization",token:t},"*"); }
-window.location.hash = "access_token=" + encodeURIComponent(t);
-<\/script><p>Authorizing... fertig! Dieses Fenster kann geschlossen werden.</p></body></html>`;
-
-  res.setHeader('Content-Type', 'text/html');
-  res.status(200).send(html);
+  const siteUrl = 'https://kimdrabe.github.io/taxi-overath/admin/callback.html';
+  res.writeHead(302, {
+    Location: `${siteUrl}#access_token=${encodeURIComponent(accessToken)}`,
+  });
+  res.end();
 }
